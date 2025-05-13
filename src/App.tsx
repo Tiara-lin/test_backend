@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './components/Header';
 import Stories from './components/Stories';
 import Feed from './components/Feed';
@@ -22,9 +21,9 @@ function App() {
           {/* Sidebar */}
           <div className="hidden lg:block w-[320px] pt-4 sticky top-20">
             <Profile 
-              username="johndoe"
-              name="John Doe"
-              imageUrl="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              username="beautyamy"
+              name="AmyLumiere"
+              imageUrl="https://i.ibb.co/ymN2m0CM/20250502-0208-image.png"
             />
             <Suggestions />
             <Footer />

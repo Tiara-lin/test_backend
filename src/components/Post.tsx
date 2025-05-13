@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal, Play, Volume2, VolumeX } from 'lucide-react';
+import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal, Volume2, VolumeX } from 'lucide-react';
 
 interface Comment {
   username: string;
@@ -35,32 +35,12 @@ const Post: React.FC<PostProps> = ({
   const [isSaved, setIsSaved] = useState(false);
   const [comment, setComment] = useState('');
   const [showAllComments, setShowAllComments] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-  };
-
-  const handleSave = () => {
-    setIsSaved(!isSaved);
-  };
-
-  const toggleComments = () => {
-    setShowAllComments(!showAllComments);
-  };
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  const handleLike = () => setIsLiked(!isLiked);
+  const handleSave = () => setIsSaved(!isSaved);
+  const toggleComments = () => setShowAllComments(!showAllComments);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -98,22 +78,17 @@ const Post: React.FC<PostProps> = ({
               onDoubleClick={handleLike}
             />
           ) : (
-            <div className="relative w-full h-full" onClick={togglePlay}>
+            <div className="relative w-full h-full">
               <video
                 ref={videoRef}
                 src={media.url}
                 poster={media.thumbnail}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain bg-black"
+                autoPlay
                 loop
                 muted={isMuted}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
+                playsInline
               />
-              {!isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                  <Play className="w-16 h-16 text-white" />
-                </div>
-              )}
               <button
                 className="absolute bottom-4 right-4 p-2 bg-black bg-opacity-50 rounded-full text-white"
                 onClick={(e) => {
