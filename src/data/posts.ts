@@ -22,7 +22,7 @@ export const posts: Post[] = [
     "location": "Paris, France",
     "media": {
       "type": "image",
-      "url": "https://i.ibb.co/ymVXkgQV/20250612-1249-image.png"
+      "url": "https://i.ibb.co/ZpkzMsFF/1.png"
     },
     "caption": "Quiet confidence, loud curves — I’m not made to be overlooked. Elegance isn’t about hiding, it’s about holding your space.",
     "likes": 10343,
