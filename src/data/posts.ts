@@ -22,7 +22,7 @@ export const posts: Post[] = [
     "location": "Paris, France",
     "media": {
       "type": "image",
-      "url": "https://i.ibb.co/ZpkzMsFF/1.png"
+      "url": "https://i.ibb.co/ymVXkgQV/20250612-1249-image.png"
     },
     "caption": "Quiet confidence, loud curves — I’m not made to be overlooked. Elegance isn’t about hiding, it’s about holding your space.",
     "likes": 10343,
@@ -71,8 +71,8 @@ export const posts: Post[] = [
     "userImage": "https://i.ibb.co/ymN2m0CM/20250502-0208-image.png",
     "location": "Tuscany, Italy",
     "media": {
-    "type": "image",
-    "url": "https://i.ibb.co/RThKDGmV/20250609-1613-image.png"
+    "type": "video",
+    "url": "https://res.cloudinary.com/ddunt6myr/video/upload/v1749750403/video_jzi7lb.mp4"
     },
     "caption": "Soft, strong, and fully myself — curves made by confidence and calm. Nature doesn’t ask you to shrink, and neither should you.",
     "likes": 9724,
