@@ -1,16 +1,17 @@
-// server.js
+require('dotenv').config(); // ⬅️ 載入環境變數
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const interactionRoutes = require('./routes/interactions'); // ✅ 載入互動 API 路由
+const interactionRoutes = require('./routes/interactions');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5173' })); // 允許 Vite 前端跨域
+app.use(cors({ origin: '*' })); // ⬅️ 建議部署時先允許所有來源
 app.use(express.json());
-app.use('/api/interactions', interactionRoutes); // ✅ 掛載互動路由
+app.use('/api/interactions', interactionRoutes);
 
-// 定義資料模型
+// 資料模型（你保留原本的即可）
 const LikeSchema = new mongoose.Schema({
   user_id: String,
   post_id: String,
@@ -123,17 +124,18 @@ app.get('/api/stats/:post_id', async (req, res) => {
   }
 });
 
-// ✅ 啟動伺服器並處理 MongoDB 錯誤
+// ✅ 啟動伺服器（支援 Render 所需 PORT）
 async function startServer() {
   try {
-    await mongoose.connect('mongodb://localhost/instagram_mockup', {
+    await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
     console.log('✅ Connected to MongoDB');
 
-    app.listen(3000, () => {
-      console.log('🚀 Server running on http://localhost:3000');
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
     });
   } catch (err) {
     console.error('❌ MongoDB connection failed:', err.message);
