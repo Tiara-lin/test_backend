@@ -21,7 +21,7 @@ function App() {
           {/* Sidebar */}
           <div className="hidden lg:block w-[320px] pt-4 sticky top-20">
             <Profile 
-              username="beautyamy"
+              username="beautyamy.ai"
               name="AmyLumiere"
               imageUrl="https://i.ibb.co/ymN2m0CM/20250502-0208-image.png"
             />

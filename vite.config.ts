@@ -1,8 +1,7 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// 如果你的 repo 名稱是 my-project
 export default defineConfig({
-  base: '/beautyamy2/',
-  plugins: [react()]
-});
+  base: '/beautyamy4/', // 替換成你的 repo 名稱
+  plugins: [react()],
+})
